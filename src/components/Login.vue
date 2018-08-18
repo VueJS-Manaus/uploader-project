@@ -64,10 +64,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .login-section {
-    /* width: 40vw; */
     margin: 0 auto;
     padding: 1.4rem;
     transform: translate(0, 50%)
