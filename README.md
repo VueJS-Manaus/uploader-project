@@ -2,6 +2,11 @@
 
 > A Vue.js project with Vuex and Firebase
 
+## Login 
+
+Login : admin@admin.com
+Senha: admin2018
+
 ## Build Setup
 
 ``` bash
