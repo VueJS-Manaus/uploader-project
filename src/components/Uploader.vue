@@ -18,20 +18,15 @@
           </div>
         </div>
         <div class="col col-sm-8">
-          <div class="card">
+          <h3>Files Uploaded</h3>
+          <hr>
+          <div class="card" v-for="file in allFiles" :key="file.id">
             <div class="card-body">
-              <div class="uploaded-file__list">
-                  <h3>Files Uploaded</h3>
-                  <ul class="list-group">
-                    <li v-for="file in allFiles" :key="file.id" class="list-group-item d-flex justify-content-between">
-                      <p>{{file.name}}</p>
-                      <a :href="file.urlUploaded" download>Download</a>
-                      <!-- <a :href="file.urlUploaded" download>
-                        <img :src="file.urlUploaded" class="img-uploaded">
-                      </a> -->
-                    </li>
-                  </ul>
-                </div>
+              <h5 class="card-title">{{file.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">3k</h6>
+              <div class="mb-2"></div>
+              <a :href="file.urlUploaded" class="card-link" download> Download </a>
+              <a href="javascript:void(0)"  @click="removeFile(file)" class="card-link">Remove</a>
             </div>
           </div>
         </div>
@@ -67,6 +62,10 @@ export default {
     loadFile (event) {
       let file = event.target.files
       this.$store.dispatch('loadFiles', file[0])
+    },
+    removeFile (file) {
+      let files = this.$store.getters.allFiles.filter(res => res.id !== file.id)
+      this.$store.dispatch('updateFiles', files)
     }
   }
 }
