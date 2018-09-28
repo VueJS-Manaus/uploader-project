@@ -64,8 +64,7 @@ export default {
       this.$store.dispatch('loadFiles', file[0])
     },
     removeFile (file) {
-      let files = this.$store.getters.allFiles.filter(res => res.id !== file.id)
-      this.$store.dispatch('updateFiles', files)
+      this.$store.dispatch('updateFiles', file)
     }
   }
 }

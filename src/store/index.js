@@ -94,8 +94,8 @@ export const store = new Vuex.Store({
         .catch(error => console.log(error))
     },
 
-    updateFiles ({commit}, files) {
-      commit('setAllFiles', files)
+    updateFiles ({commit}, file) {
+      commit('setAllFiles', this.state.allFiles.filter(res => res.id !== file.id))
     },
 
     loadedFiles ({commit}) {
