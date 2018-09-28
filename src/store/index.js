@@ -94,6 +94,10 @@ export const store = new Vuex.Store({
         .catch(error => console.log(error))
     },
 
+    updateFiles ({commit}, files) {
+      commit('setAllFiles', files)
+    },
+
     loadedFiles ({commit}) {
       console.log('carregando')
       firebase.database().ref('allFiles').once('value')
